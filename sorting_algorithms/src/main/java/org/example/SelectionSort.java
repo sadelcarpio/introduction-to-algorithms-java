@@ -13,7 +13,7 @@ public class SelectionSort {
     private static void sort(int[] a, int n) {
         int min;
         int index;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n - 1; i++) {
             min = a[i];
             index = i;
             for (int j = i + 1; j < n; j++) {
