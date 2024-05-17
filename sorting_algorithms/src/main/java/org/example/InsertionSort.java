@@ -12,7 +12,7 @@ public class InsertionSort {
         for (int i = 0; i < n; i++) {
             A[i] = Integer.parseInt(sc.nextLine());
         }
-        sort_with_binary_search(A, n);
+        sortWithBinarySearch(A, n);
         System.out.println(Arrays.toString(A));
     }
 
@@ -28,12 +28,12 @@ public class InsertionSort {
         }
     }
 
-    public static void sort_with_binary_search(int[] A, int n) {
+    public static void sortWithBinarySearch(int[] A, int n) {
         for (int i = 1; i < n; i++) {
             int key = A[i];
-            int index = BinarySearch.binarySearch(A, key, 0, i - 1);
+            int index = binaryInsert(A, key, 0, i);
             int j = i - 1;
-            while (j > index) {
+            while (j >= index) {
                 A[j + 1] = A[j];
                 j = j - 1;
             }
@@ -41,11 +41,11 @@ public class InsertionSort {
         }
     }
 
-    public static void recursive_sort(int[] A, int n) {
+    public static void recursiveSort(int[] A, int n) {
         if (n == 1) {
             return;
         }
-        recursive_sort(A, n - 1);
+        recursiveSort(A, n - 1);
         int key = A[n - 1];
         for (int i = n - 2; i >= 0; i--) {
             if (key < A[i]) {
@@ -53,5 +53,15 @@ public class InsertionSort {
                 A[i] = key;
             }
         }
+    }
+
+    private static int binaryInsert(int[] A, int key, int p, int r) {
+        int q = (p + r) / 2;
+        if (p >= r) return p;
+        if (key == A[q]) return q;
+        if (key < A[q]) {
+            return binaryInsert(A, key, p, q);
+        }
+        return binaryInsert(A, key, q + 1, r);
     }
 }
