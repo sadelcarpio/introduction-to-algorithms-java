@@ -12,8 +12,8 @@ public class BinarySearch {
     }
 
     private static int binarySearch(int[] a, int val, int p, int r) {
-        if (p >= r) return -1;
         int q = (p + r) / 2;
+        if (p >= r) return -1;
         if (val == a[q]) return q;
         if (val < a[q]) {
             return binarySearch(a, val, p, q);
