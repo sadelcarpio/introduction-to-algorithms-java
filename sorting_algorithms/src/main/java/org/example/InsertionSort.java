@@ -29,7 +29,7 @@ public class InsertionSort {
     }
 
     public static void recursive_sort(int[] A, int n) {
-        if (n == 0) {
+        if (n == 1) {
             return;
         }
         recursive_sort(A, n - 1);
