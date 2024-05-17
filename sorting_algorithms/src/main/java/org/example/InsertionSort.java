@@ -12,7 +12,7 @@ public class InsertionSort {
         for (int i = 0; i < n; i++) {
             A[i] = Integer.parseInt(sc.nextLine());
         }
-        sort(A, n);
+        recursive_sort(A, n);
         System.out.println(Arrays.toString(A));
     }
 
@@ -25,6 +25,20 @@ public class InsertionSort {
                 j = j - 1;
             }
             A[j + 1] = key;
+        }
+    }
+
+    public static void recursive_sort(int[] A, int n) {
+        if (n == 0) {
+            return;
+        }
+        recursive_sort(A, n - 1);
+        int key = A[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            if (key < A[i]) {
+                A[i + 1] = A[i];
+                A[i] = key;
+            }
         }
     }
 }
