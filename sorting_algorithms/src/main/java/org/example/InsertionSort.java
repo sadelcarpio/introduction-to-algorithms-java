@@ -3,6 +3,7 @@ package org.example;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//Dummy comment
 public class InsertionSort {
     public static void main(String[] args) {
         int n;
