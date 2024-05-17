@@ -31,7 +31,7 @@ public class InsertionSort {
     public static void sort_with_binary_search(int[] A, int n) {
         for (int i = 1; i < n; i++) {
             int key = A[i];
-            int index = BinarySearch.binarySearch(A, key, 0, i);
+            int index = BinarySearch.binarySearch(A, key, 0, i - 1);
             int j = i - 1;
             while (j > index) {
                 A[j + 1] = A[j];
