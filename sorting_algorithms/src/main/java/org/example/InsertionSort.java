@@ -12,7 +12,7 @@ public class InsertionSort {
         for (int i = 0; i < n; i++) {
             A[i] = Integer.parseInt(sc.nextLine());
         }
-        recursive_sort(A, n);
+        sort_with_binary_search(A, n);
         System.out.println(Arrays.toString(A));
     }
 
@@ -21,6 +21,19 @@ public class InsertionSort {
             int key = A[i];
             int j = i - 1;
             while (j >= 0 && A[j] > key) {
+                A[j + 1] = A[j];
+                j = j - 1;
+            }
+            A[j + 1] = key;
+        }
+    }
+
+    public static void sort_with_binary_search(int[] A, int n) {
+        for (int i = 1; i < n; i++) {
+            int key = A[i];
+            int index = BinarySearch.binarySearch(A, key, 0, i);
+            int j = i - 1;
+            while (j > index) {
                 A[j + 1] = A[j];
                 j = j - 1;
             }

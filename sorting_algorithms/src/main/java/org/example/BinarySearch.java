@@ -11,7 +11,7 @@ public class BinarySearch {
         System.out.println(index);
     }
 
-    private static int binarySearch(int[] a, int val, int p, int r) {
+    public static int binarySearch(int[] a, int val, int p, int r) {
         if (p >= r) return -1;
         int q = (p + r) / 2;
         if (val == a[q]) return q;
