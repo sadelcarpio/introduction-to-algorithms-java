@@ -7,17 +7,17 @@ public class BinarySearch {
         int[] arr = new int[]{6, 5, 7, 3, 2, 1};
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
-        int index = binarySearch(arr, 4, 0, arr.length);
+        int index = search(arr, 4, 0, arr.length);
         System.out.println(index);
     }
 
-    private static int binarySearch(int[] a, int val, int p, int r) {
+    public static int search(int[] a, int val, int p, int r) {
         int q = (p + r) / 2;
         if (p >= r) return -1;
         if (val == a[q]) return q;
         if (val < a[q]) {
-            return binarySearch(a, val, p, q);
+            return search(a, val, p, q);
         }
-        return binarySearch(a, val, q + 1, r);
+        return search(a, val, q + 1, r);
     }
 }

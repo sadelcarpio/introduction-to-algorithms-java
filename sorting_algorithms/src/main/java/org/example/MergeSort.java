@@ -10,7 +10,7 @@ public class MergeSort {
         System.out.println(Arrays.toString(A));
     }
 
-    private static void sort(int[] a, int p, int r) {
+    public static void sort(int[] a, int p, int r) {
         if (p >= r) {
             return;
         }
@@ -26,7 +26,7 @@ public class MergeSort {
         int[] L = new int[n_l];
         int[] R = new int[n_r];
         System.arraycopy(a, p, L, 0, n_l);
-        System.arraycopy(a, q + 1, R, 0, n_l);
+        System.arraycopy(a, q + 1, R, 0, n_r);
         int i = 0; int j = 0; int k = p;
         while (i < n_l && j < n_r) {
             if (L[i] <= R[j]) {
