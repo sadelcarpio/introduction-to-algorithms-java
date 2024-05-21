@@ -2,10 +2,9 @@ package org.example;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int n = 6;
         int[] A = new int[]{6, 5, 9, 7, 7, 1, 3};
         int x = 16;
-        System.out.println(optimizedTwoSum(A, n, x));
+        System.out.println(optimizedTwoSum(A, A.length, x));
 
     }
 

@@ -4,9 +4,8 @@ import java.util.Arrays;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int n = 6;
         int[] A = new int[]{5, 2, 4, 6, 1, 3};
-        sort(A, n);
+        sort(A, A.length);
         System.out.println(Arrays.toString(A));
     }
 

@@ -1,25 +1,26 @@
 package org.example;
 
-import java.util.Arrays;
-
-public class MergeSort {
+public class NumInversions {
     public static void main(String[] args) {
-        int[] A = new int[]{12, 3, 7, 9, 14, 6, 11, 2};
-        sort(A, 0, A.length - 1);
-        System.out.println(Arrays.toString(A));
+        int[] A = new int[]{5, 6, 4, 0, 3, 9, 12, 8, 16, 1};
+        int numInversions = countInversions(A, 0, A.length - 1);
+        System.out.println(numInversions);
     }
 
-    public static void sort(int[] a, int p, int r) {
+    public static int countInversions(int[] a, int p, int r) {
+        int numInversions = 0;
         if (p >= r) {
-            return;
+            return numInversions;
         }
         int q = (p + r) / 2;
-        sort(a, p, q);
-        sort(a, q + 1, r);
-        merge(a, p, q, r);
+        numInversions += countInversions(a, p, q);
+        numInversions += countInversions(a, q + 1, r);
+        numInversions += merge(a, p, q, r);
+        return numInversions;
     }
 
-    private static void merge(int[] a, int p, int q, int r) {
+    private static int merge(int[] a, int p, int q, int r) {
+        int numInversions = 0;
         int n_l = q - p + 1;
         int n_r = r - q;
         int[] L = new int[n_l];
@@ -34,6 +35,7 @@ public class MergeSort {
             }
             else {
                 a[k] = R[j];
+                numInversions += (n_l - i);
                 j++;
             }
             k++;
@@ -48,5 +50,6 @@ public class MergeSort {
             j++;
             k++;
         }
+        return numInversions;
     }
 }
